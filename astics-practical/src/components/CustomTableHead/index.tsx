@@ -25,7 +25,18 @@ const CustomTableHead: FC<ICustomTableHeadProps> = ({
               onClick={col.sort ? () => handleSorting(col.key) : undefined}
               style={{ cursor: col.sort ? "pointer" : "inherit" }}
             >
-              {col.column} <img src={Arrow} alt="sorting" />
+              {col.column}{" "}
+              {col.sort && col.key === orderBy && (
+                <img
+                  src={Arrow}
+                  alt="sorting"
+                  style={{
+                    transform: `${
+                      order === "asc" ? "rotate(0deg)" : "rotate(180deg)"
+                    }`,
+                  }}
+                />
+              )}
             </th>
           );
         })}

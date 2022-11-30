@@ -1,1 +1,1 @@
-export const Arrow = require("./arrow.svg").default;
+export const Arrow = require("./arrow.png");

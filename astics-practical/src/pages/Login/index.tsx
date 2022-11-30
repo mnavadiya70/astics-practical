@@ -36,81 +36,89 @@ const Login = () => {
   };
 
   return (
-    <Container
-      maxWidth="sm"
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
-      <Formik
-        initialValues={initialData}
-        validationSchema={validationSchema}
-        validateOnChange
-        onSubmit={handleSubmit}
+    <>
+      <Container
+        maxWidth="sm"
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
-        {({
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleSubmit,
-          handleBlur,
-          isValid,
-        }) => (
-          <Form onSubmit={handleSubmit}>
-            <TextField
-              fullWidth
-              className="input-field"
-              autoComplete="off"
-              label="Email"
-              name="email"
-              type="text"
-              value={values.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              error={Boolean(!values.email && touched.email && errors.email)}
-              helperText={!values.email && touched.email && errors.email}
-            />
-            <TextField
-              fullWidth
-              className="input-field"
-              autoComplete="off"
-              label="Password"
-              name="password"
-              type="password"
-              value={values.password}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              error={Boolean(
-                !values.password && touched.password && errors.password
-              )}
-              helperText={
-                !values.password && touched.password && errors.password
-              }
-            />
-            <Button
-              fullWidth
-              disabled={!isValid}
-              type="submit"
-              sx={{
-                margin: "10px !important",
-                padding: "10px",
-              }}
-              color="primary"
-              variant="contained"
-            >
-              Login
-            </Button>
-          </Form>
-        )}
-      </Formik>
-      <p>
-        Don't have account? <Link to="/sign-up">Sign up</Link>
+        {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
+        <Formik
+          initialValues={initialData}
+          validationSchema={validationSchema}
+          validateOnChange
+          onSubmit={handleSubmit}
+        >
+          {({
+            values,
+            errors,
+            touched,
+            handleChange,
+            handleSubmit,
+            handleBlur,
+            isValid,
+          }) => (
+            <Form onSubmit={handleSubmit}>
+              <TextField
+                fullWidth
+                className="input-field"
+                autoComplete="off"
+                label="Email"
+                name="email"
+                type="text"
+                value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={Boolean(!values.email && touched.email && errors.email)}
+                helperText={!values.email && touched.email && errors.email}
+              />
+              <TextField
+                fullWidth
+                className="input-field"
+                autoComplete="off"
+                label="Password"
+                name="password"
+                type="password"
+                value={values.password}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={Boolean(
+                  !values.password && touched.password && errors.password
+                )}
+                helperText={
+                  !values.password && touched.password && errors.password
+                }
+              />
+              <Button
+                fullWidth
+                disabled={!isValid}
+                type="submit"
+                sx={{
+                  margin: "10px !important",
+                  padding: "10px",
+                }}
+                color="primary"
+                variant="contained"
+              >
+                Login
+              </Button>
+            </Form>
+          )}
+        </Formik>
+      </Container>
+      <p
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        Don't have account?<Link to="/sign-up"> Sign up</Link>
       </p>
-    </Container>
+    </>
   );
 };
 export default Login;

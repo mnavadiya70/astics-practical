@@ -9,7 +9,7 @@ const add = (data: IUser) => {
     email: data.email,
     password: data.password,
   };
-  const res = axios.post(`items.json`, JSON.stringify(item));
+  const res = axios.post(`users.json`, JSON.stringify(item));
   return res;
 };
 

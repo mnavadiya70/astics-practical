@@ -12,7 +12,10 @@ const Header = () => {
   };
 
   return (
-    <Container maxWidth="xl" sx={{ display: "flex", justifyContent: "end" }}>
+    <Container
+      maxWidth="xl"
+      sx={{ display: "flex", justifyContent: "end", margin: "15px 0" }}
+    >
       <Button
         variant="outlined"
         sx={{ padding: "auto" }}

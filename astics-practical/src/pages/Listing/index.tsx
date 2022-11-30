@@ -21,7 +21,6 @@ const headers = [
   { label: "Price", key: "price" },
 ];
 
-const date = new Date();
 const Listing = () => {
   const [data, setData] = useState<IItem[]>([]);
   const [filteredData, setFilteredData] = useState<IItem[]>([]);
@@ -34,10 +33,12 @@ const Listing = () => {
 
   useEffect(() => {
     getItems();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     getItems();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search, page, rowsPerPage]);
 
   const applySorting = (key: any, newOrder: any, list: IItem[]) => {
@@ -140,7 +141,11 @@ const Listing = () => {
       key: "",
       column: "",
       render: (row: IItem) => (
-        <Button title="Delete" onClick={() => handleDelete(row.id)}>
+        <Button
+          variant="outlined"
+          title="Delete"
+          onClick={() => handleDelete(row.id)}
+        >
           Delete
         </Button>
       ),
@@ -155,20 +160,39 @@ const Listing = () => {
         sx={{ display: "flex", justifyContent: "space-between" }}
       >
         <h2>Items</h2>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            height: "fit-content",
+          }}
+        >
           <TextField
             placeholder="Search..."
             name="search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
+            style={{ marginRight: "10px" }}
           />
-          <Button title="Add Item" onClick={() => setOpen(true)}>
+          <Button
+            variant="outlined"
+            title="Add Item"
+            onClick={() => setOpen(true)}
+            style={{ marginRight: "10px" }}
+          >
             Add Item
           </Button>
           <CSVLink
             data={filteredData}
             headers={headers}
-            filename={`Items_${date.toLocaleString()}`}
+            filename="Items"
+            style={{
+              textDecoration: "none",
+              color: "#1976d2",
+              padding: "10px",
+              border: "1px solid rgba(25, 118, 210, 0.5)",
+              borderRadius: "4px",
+            }}
           >
             Export
           </CSVLink>

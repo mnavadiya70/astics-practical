@@ -35,115 +35,123 @@ const SignUp = () => {
   };
 
   return (
-    <Container
-      maxWidth="sm"
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
-      <Formik
-        initialValues={initialData}
-        validationSchema={validationSchema}
-        validateOnChange
-        onSubmit={handleSubmit}
+    <>
+      <Container
+        maxWidth="sm"
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
-        {({
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleSubmit,
-          handleBlur,
-          isValid,
-        }) => (
-          <Form onSubmit={handleSubmit}>
-            <TextField
-              fullWidth
-              className="input-field"
-              autoComplete="off"
-              label="First name"
-              name="firstname"
-              type="text"
-              value={values.firstname}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              error={Boolean(
-                !values.firstname && touched.firstname && errors.firstname
-              )}
-              helperText={
-                !values.firstname && touched.firstname && errors.firstname
-              }
-            />
-            <TextField
-              fullWidth
-              className="input-field"
-              autoComplete="off"
-              label="Last name"
-              name="lastname"
-              type="text"
-              value={values.lastname}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              error={Boolean(
-                !values.lastname && touched.lastname && errors.lastname
-              )}
-              helperText={
-                !values.lastname && touched.lastname && errors.lastname
-              }
-            />
-            <TextField
-              fullWidth
-              className="input-field"
-              autoComplete="off"
-              label="Email"
-              name="email"
-              type="text"
-              value={values.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              error={Boolean(!values.email && touched.email && errors.email)}
-              helperText={!values.email && touched.email && errors.email}
-            />
-            <TextField
-              fullWidth
-              className="input-field"
-              autoComplete="off"
-              label="Password"
-              name="password"
-              type="password"
-              value={values.password}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              error={Boolean(
-                !values.password && touched.password && errors.password
-              )}
-              helperText={
-                !values.password && touched.password && errors.password
-              }
-            />
-            <Button
-              fullWidth
-              disabled={!isValid}
-              type="submit"
-              sx={{
-                margin: "10px !important",
-                padding: "10px",
-              }}
-              color="primary"
-              variant="contained"
-            >
-              SignUp
-            </Button>
-          </Form>
-        )}
-      </Formik>
-      <p>
+        {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
+        <Formik
+          initialValues={initialData}
+          validationSchema={validationSchema}
+          validateOnChange
+          onSubmit={handleSubmit}
+        >
+          {({
+            values,
+            errors,
+            touched,
+            handleChange,
+            handleSubmit,
+            handleBlur,
+            isValid,
+          }) => (
+            <Form onSubmit={handleSubmit}>
+              <TextField
+                fullWidth
+                className="input-field"
+                autoComplete="off"
+                label="First name"
+                name="firstname"
+                type="text"
+                value={values.firstname}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={Boolean(
+                  !values.firstname && touched.firstname && errors.firstname
+                )}
+                helperText={
+                  !values.firstname && touched.firstname && errors.firstname
+                }
+              />
+              <TextField
+                fullWidth
+                className="input-field"
+                autoComplete="off"
+                label="Last name"
+                name="lastname"
+                type="text"
+                value={values.lastname}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={Boolean(
+                  !values.lastname && touched.lastname && errors.lastname
+                )}
+                helperText={
+                  !values.lastname && touched.lastname && errors.lastname
+                }
+              />
+              <TextField
+                fullWidth
+                className="input-field"
+                autoComplete="off"
+                label="Email"
+                name="email"
+                type="text"
+                value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={Boolean(!values.email && touched.email && errors.email)}
+                helperText={!values.email && touched.email && errors.email}
+              />
+              <TextField
+                fullWidth
+                className="input-field"
+                autoComplete="off"
+                label="Password"
+                name="password"
+                type="password"
+                value={values.password}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={Boolean(
+                  !values.password && touched.password && errors.password
+                )}
+                helperText={
+                  !values.password && touched.password && errors.password
+                }
+              />
+              <Button
+                fullWidth
+                disabled={!isValid}
+                type="submit"
+                sx={{
+                  margin: "10px !important",
+                  padding: "10px",
+                }}
+                color="primary"
+                variant="contained"
+              >
+                SignUp
+              </Button>
+            </Form>
+          )}
+        </Formik>
+      </Container>
+      <p
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         Already have account? <Link to="/">Login</Link>
       </p>
-    </Container>
+    </>
   );
 };
 export default SignUp;

@@ -38,3 +38,8 @@ tr:nth-child(even) {
 .no-data{
   text-align: center;
 }
+ 
+.MuiTablePagination-root{
+  float: right;
+  margin-top: 10px;
+}
