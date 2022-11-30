@@ -1,0 +1,16 @@
+import { IUser } from "../../types/users";
+import axios from "../../utils/axios";
+
+const add = (data: IUser) => {
+  const item = {
+    id: "",
+    firstname: data.firstname,
+    lastname: data.lastname,
+    email: data.email,
+    password: data.password,
+  };
+  const res = axios.post(`items.json`, JSON.stringify(item));
+  return res;
+};
+
+export { add };
